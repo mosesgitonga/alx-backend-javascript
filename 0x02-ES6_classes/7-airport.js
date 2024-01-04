@@ -8,7 +8,7 @@ export default class Airport {
         if (typeof newName !== 'string') {
             throw new TypeError("name should be string")
         } 
-        this._name = newname;
+        this._name = newName;
     }
 
     get name() {
@@ -16,8 +16,8 @@ export default class Airport {
     }
 
     set code(code) {
-        if (typeof code !== 'number') {
-            throw new TypeError("Expected a number as arg")
+        if (typeof code !== 'string') {
+            throw new TypeError("Expected a string as arg")
         }
         this._code = code;
     }
