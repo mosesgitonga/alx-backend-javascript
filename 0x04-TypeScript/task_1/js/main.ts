@@ -1,7 +1,7 @@
 const { JSDOM } = require('jsdom');
 
 
-interface Teacher {
+ export interface Teacher {
     firstName: string,
     lastName: string,
     fullTimeEmployee: boolean,
@@ -19,9 +19,8 @@ const teacher: Teacher = {
     contract: true
 };
 
-console.log(teacher)
 
-interface Director extends Teacher {
+export interface Director extends Teacher {
     numberOfReports: number
 }
 
@@ -35,4 +34,10 @@ const director1: Director = {
     numberOfReports: 20
 }
 
-console.log(director1)
+export interface printTeacherFunction{
+    (firstName: string, lastName: string): string
+}
+
+function printTeacher(firstName: string, lastName: string) {
+    return `${firstName[0]}. ${lastName}`
+}
