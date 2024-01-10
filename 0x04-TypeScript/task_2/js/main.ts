@@ -1,3 +1,5 @@
+import { Dir } from "fs"
+
 export interface DirectorInterface {
     workFromHome(): string
     getCoffeeBreak(): string
@@ -42,14 +44,26 @@ class Teacher implements TeacherInterface{
 export interface createEmployee {
     (salary: number): number | string
 }
-function createEmployee(salary: any) {
+function createEmployee(salary: string | number): Director | Teacher  {
     if (typeof salary === 'number'){
         if (salary < 500) {
-            return 'Teacher'
+            return new Teacher()
         }else {
-            return 'Director'
+            return new Director()
         }
     }
 }
 
-console.log(createEmployee('$500'))
+function isDirector(employee: (Director | Teacher)){
+    return employee instanceof Director
+}
+
+function executeWork(employee: Director | Teacher) {
+    if (isDirector(employee)) {
+        return (employee as Director).workDirectorTasks();
+    }
+    return (employee as Teacher).workTeacherTasks();
+}
+
+console.log(executeWork(createEmployee(200)))
+console.log(executeWork(createEmployee(8000)))
