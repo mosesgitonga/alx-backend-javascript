@@ -65,5 +65,12 @@ function executeWork(employee: Director | Teacher) {
     return (employee as Teacher).workTeacherTasks();
 }
 
-console.log(executeWork(createEmployee(200)))
-console.log(executeWork(createEmployee(8000)))
+type Subjects = 'Math' | 'History'
+
+function teachClass(todayClass: string) {
+    if (todayClass === 'Math') {
+        return 'Teaching Math'
+    } else if (todayClass === 'History') {
+        return 'Teaching History'
+    }
+}
