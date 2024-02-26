@@ -1,6 +1,6 @@
 /**
  * Display a msg.
- * @param {String} strArg The message to display.
+ * @param strArg The message to display.
  */
 function displayMessage(strArg) {
     console.log(strArg)
