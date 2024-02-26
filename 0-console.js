@@ -1,7 +1,5 @@
-#!/usr/bin/node
-
-function displayMessage(strArg) {
+const displayMessage = (strArg) => {
     console.log(strArg)
-}
+};
 
 module.exports = displayMessage
