@@ -12,7 +12,7 @@ function countStudents(dbFilePath) {
     const data = fs.readFileSync(dbFilePath, 'utf8');
 
     let lines = data.split('\n');
-    lines = lines.filter(line => line.trim() !== '');
+    lines = lines.filter((line) => line.trim() !== '');
 
     const numberOfStudents = lines.length - 1;
     console.log(`Number of students: ${numberOfStudents}`);
@@ -30,11 +30,11 @@ function countStudents(dbFilePath) {
         const field = student.split(',')[3];
 
         if (field === 'CS') {
-            CsCount += 1;
-            firstNameCs += `${firstName}, `;
+          CsCount += 1;
+          firstNameCs += `${firstName}, `;
         } else if (field === 'SWE') {
-            SweCount += 1;
-            firstNameSwe += `${firstName}, `;
+          SweCount += 1;
+          firstNameSwe += `${firstName}, `;
         }
       }
     }
@@ -45,7 +45,6 @@ function countStudents(dbFilePath) {
     console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
     console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
   } catch (err) {
-    console.log(err)
     throw new Error('Cannot load the database');
   }
 }
