@@ -37,8 +37,8 @@ function countStudents(dbFilePath) {
     firstNameCs = firstNameCs.slice(0, -2);
     firstNameSwe = firstNameSwe.slice(0, -2);
 
-    console.log(`Number of Students in CS: ${CsCount}. List: ${firstNameCs}`);
-    console.log(`Number of Students in SWE: ${SweCount}. List: ${firstNameSwe}`);
+    console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
+    console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
   } catch (err) {
     throw new Error(err);
   }
