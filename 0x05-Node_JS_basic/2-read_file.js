@@ -8,6 +8,7 @@ function countStudents(dbFilePath) {
     if (!fs.statSync(dbFilePath).isFile()) {
       throw new Error('Cannot load the database');
     }
+
     const data = fs.readFileSync(dbFilePath, 'utf8');
     const lines = data.split('\n');
 
@@ -40,7 +41,7 @@ function countStudents(dbFilePath) {
     console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
     console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
   } catch (err) {
-    throw new Error(err);
+    throw new Error('Cannot load the database');
   }
 }
 
