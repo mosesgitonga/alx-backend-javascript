@@ -1,11 +1,11 @@
 {
   "name": "0x06-unittests_in_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "YOU CANT FAIL TESTS IF YOU SKIP THEM :)",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require 'assert'",
-    "lint":  "./node_modules/.bin/eslint"
+    "lint": "eslint"
   },
   "author": "",
   "license": "ISC"
