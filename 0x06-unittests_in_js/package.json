@@ -8,5 +8,11 @@
     "lint": "eslint"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sinon": "^17.0.1"
+  },
+  "dependencies": {
+    "require": "^2.4.20"
+  }
 }
