@@ -1,6 +1,6 @@
 class Utils {
     static calculateNumber(type, a, b) {
-    
+        let res = 0
         if (type === 'SUM') {
             a = Math.round(a)
             b = Math.round(b)

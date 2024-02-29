@@ -1,24 +1,20 @@
 
-const Payment = require('./3-payment');
+const sendPaymentRequestToApi = require('./3-payment');
 const sinon = require('sinon')
 const assert = require('assert')
 const Utils = require('./utils')
 
 describe('payment util', function() {
     it('should return equal results of 2 different functions', function() {
-        const calculateNumberSpy = sinon.spy(Utils, 'calculateNumber');
-        const paymentSpy = sinon.spy(Payment, 'sendPaymentRequestToApi');
+        const calculateNumber = Utils.calculateNumber
+        const calculateNumberSpy = sinon.spy(Utils, 'calculateNumber')
+        const sendPaymentRequestToApiSpy = sinon.spy(sendPaymentRequestToApi)
 
-        const res1 = Utils.calculateNumber('SUM', 1.4, 4.5);
+        const calculateNumberRes = calculateNumber('SUM', 200, 100)
+        const sendPaymentRequestToApiRes = sendPaymentRequestToApiSpy(200, 100)
 
-        calculateNumberSpy.restore();
+        assert.strictEqual(calculateNumberRes, sendPaymentRequestToApiRes)
 
-        
-
-        const res2 = Payment.sendPaymentRequestToApi(1.4, 4.5);
-
-        paymentSpy.restore();
-
-        assert.equal(res1, res2);
+        calculateNumberSpy.restore()
     })
 })
