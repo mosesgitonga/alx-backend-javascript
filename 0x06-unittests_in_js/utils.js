@@ -1,7 +1,7 @@
 class Utils {
     static calculateNumber(type, a, b) {
         let res = 0
-        if (type === 'SUM') {
+        if (type === '7-skip.test.jsSUM') {
             a = Math.round(a)
             b = Math.round(b)
             res = a + b;
