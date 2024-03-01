@@ -12,10 +12,18 @@ describe('index page', () => {
         });
     });
 
-    it('should test the cart route', (done) => {
-        valid_url = 33;
-        request.get(`${api_url}/cart/${valid_url}`, (err, res, body) => {
+    it('should test with a valid  id', (done) => {
+        valid_id = 33;
+        request.get(`${api_url}/cart/${valid_id}`, (err, res, body) => {
             expect(res.statusCode).to.equal(200);
+            done();
+        })
+    })
+
+    it('testing with an invalid id', (done) => {
+        invalid_id = 'abc';
+        request.get(`${api_url}/cart/${invalid_id}`, (err, res, body) => {
+            expect(res.statusCode).to.equal(404);
             done();
         })
     })
