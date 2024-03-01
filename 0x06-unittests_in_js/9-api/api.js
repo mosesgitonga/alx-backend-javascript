@@ -6,11 +6,21 @@ app.get('/', (_, res) => {
     res.send('Welcome to the payment system')
 })
 
-app.get('/cart/:id', (req, res) => {
-    const { id }= req.params
-    if (/^\d+$/.test(id)) {
-        res.send('Payment methods for cart :id')
+const validateId = (req, res, next) => {
+    const { id } = req.params;
+    if (!/^\d+$/.test(id)) {
+        return res.status(404).send('Invalid id. Must be a number');
     }
+    next();
+};
+
+
+app.get('/cart/:id', validateId ,(req, res) => {
+
+    const { id }= req.params
+ 
+    res.send('Payment methods for cart :id')
+ 
 }) 
 
 const PORT = 7865
