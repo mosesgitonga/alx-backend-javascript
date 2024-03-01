@@ -19,7 +19,7 @@ describe('hooks', function() {
         sinon.assert.calledWith(consoleLogSpy, 'The total is: 120')
     });
 
-    it ('should log "The total is: 10" when called with 10 and 10', function() {
+    it ('should log "The total is: 20" when called with 10 and 10', function() {
         sendPaymentRequestToApi(10, 10)
         sinon.assert.calledOnce(consoleLogSpy)
         sinon.assert.calledWith(consoleLogSpy, 'The total is: 20')
