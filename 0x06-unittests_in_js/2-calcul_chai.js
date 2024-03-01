@@ -23,4 +23,4 @@ function calculateNumber(type, a, b) {
 x = calculateNumber('SUM', 1.1, 4.5)
 console.log(x)
 
-module.exports = { calculateNumber }
+module.exports = calculateNumber
