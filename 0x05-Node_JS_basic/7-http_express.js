@@ -14,7 +14,7 @@ function countStudents(dbFilePath) {
       lines = lines.filter((line) => line.trim() !== '');
 
       const numberOfStudents = lines.length - 1;
-      console.log(`Number of students: ${numberOfStudents}`);
+      //console.log(`Number of students: ${numberOfStudents}`);
 
       let firstNameCs = '';
       let firstNameSwe = '';
@@ -41,8 +41,8 @@ function countStudents(dbFilePath) {
       firstNameCs = firstNameCs.slice(0, -2);
       firstNameSwe = firstNameSwe.slice(0, -2);
 
-      console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
-      console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
+      //console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
+      //console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
       const output = `Number of students: ${numberOfStudents}\nNumber of students in CS: ${CsCount}. List: ${firstNameCs}\nNumber of students in SWE: ${SweCount}. List: ${firstNameSwe}\n`;
 
       resolve(output);
@@ -54,12 +54,12 @@ const app = express();
 const port = 1245;
 
 app.get('/', (req, res) => {
-  // res.setHeader('Content-Type', 'plain/text');
+  res.setHeader('Content-Type', 'plain/text');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
-  // res.setHeader('Content-Type', 'plain/text')
+   res.setHeader('Content-Type', 'plain/text')
 
   countStudents(process.argv[2].toString()).then((output) => {
     const outString = output.slice(0, -1);
