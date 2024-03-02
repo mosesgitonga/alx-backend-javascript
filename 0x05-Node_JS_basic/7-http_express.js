@@ -14,7 +14,7 @@ function countStudents(dbFilePath) {
       lines = lines.filter((line) => line.trim() !== '');
 
       const numberOfStudents = lines.length - 1;
-      //console.log(`Number of students: ${numberOfStudents}`);
+      // console.log(`Number of students: ${numberOfStudents}`);
 
       let firstNameCs = '';
       let firstNameSwe = '';
@@ -41,8 +41,8 @@ function countStudents(dbFilePath) {
       firstNameCs = firstNameCs.slice(0, -2);
       firstNameSwe = firstNameSwe.slice(0, -2);
 
-      //console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
-      //console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
+      // console.log(`Number of students in CS: ${CsCount}. List: ${firstNameCs}`);
+      // console.log(`Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`);
       const output = `Number of students: ${numberOfStudents}\nNumber of students in CS: ${CsCount}. List: ${firstNameCs}\nNumber of students in SWE: ${SweCount}. List: ${firstNameSwe}\n`;
 
       resolve(output);
@@ -59,16 +59,18 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-   res.setHeader('Content-Type', 'plain/text')
+  res.setHeader('Content-Type', 'plain/text');
 
   countStudents(process.argv[2].toString()).then((output) => {
     const outString = output.slice(0, -1);
     res.send(`This is the list of our students\n${outString}`);
   }).catch(() => {
-    res.status(500).send('internal server error');
+    res.send('This is the list of our students\nCannot load the database');
   });
 });
 
 app.listen(port, () => {
   console.log('server is running on port 1245');
 });
+
+module.exports = app;
