@@ -76,7 +76,6 @@ const app = http.createServer((req, res) => {
   }
 });
 
-const hostname = '127.0.0.1'
-app.listen(PORT, hostname, () => {
+app.listen(PORT, () => {
   console.log('server is active');
 });
