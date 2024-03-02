@@ -75,3 +75,5 @@ const app = http.createServer((req, res) => {
 app.listen(PORT, () => {
   console.log('Server is active');
 });
+
+module.export = app
