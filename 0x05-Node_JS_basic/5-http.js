@@ -44,7 +44,7 @@ function countStudents(dbFilePath) {
       firstNameSwe = firstNameSwe.slice(0, -2);
 
       const output = `Number of students in CS: ${CsCount}. List: ${firstNameCs}\n` +
-                     `Number of students in SWE: ${SweCount}. List: ${firstNameSwe}\n`;
+                     `Number of students in SWE: ${SweCount}. List: ${firstNameSwe}`;
 
       console.log(output);
 
